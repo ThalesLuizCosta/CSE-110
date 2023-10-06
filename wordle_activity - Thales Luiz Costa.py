@@ -4,7 +4,8 @@ def wordle_game(word_list, max_attempts=5):
     # Choose a random word from the list
     chosen_word = random.choice(word_list)
     print("Welcome to Wordle! Guess the word.")
-    print("This time the word that you will try to guess is a Fruit, you can do it?")
+    print("This time the word that you will try to guess is a Fruit.")
+    print("It's a fruit with 5 letters. Can you guess it?")
     
     attempts = 0
     while attempts < max_attempts:
