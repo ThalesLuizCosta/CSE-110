@@ -1,3 +1,28 @@
 {
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "cSpell.words": [
+        "assim",
+        "casos",
+        "chamar",
+        "código",
+        "coloca",
+        "colocar",
+        "declarar",
+        "dentro",
+        "dessa",
+        "desse",
+        "então",
+        "esquecer",
+        "está",
+        "função",
+        "hahaha",
+        "linha",
+        "neste",
+        "nunca",
+        "podemos",
+        "retornará",
+        "somente",
+        "todos",
+        "variável"
+    ]
 }
