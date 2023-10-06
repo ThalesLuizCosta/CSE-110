@@ -1,0 +1,3 @@
+people = ['Thales', 'Pamela']
+
+for 
