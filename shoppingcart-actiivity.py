@@ -18,10 +18,9 @@ while True:
 
         if shopping_cart:
             print("\nItems in cart:")
-            for item in shopping_cart:
-                for i in range(len(shopping_cart)):
+            for i in range(len(shopping_cart)):
                     item = shopping_cart[i]
-                    print(f"{i}. {item}")
+                    print(f"{i}- {item}")
         else:
             print("The cart is empty.")
     elif choose == "3":
