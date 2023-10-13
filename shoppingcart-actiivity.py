@@ -23,10 +23,12 @@ while True:
                     print(f"{i}- {item}")
         else:
             print("The cart is empty.")
+
     elif choose == "3":
 
         print("Thank you for using the shopping cart. Check back often!")
         break
+    
     else:
 
         print("Invalid option. Please choose a valid option.")
