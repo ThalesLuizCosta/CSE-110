@@ -17,8 +17,8 @@ class shopping_cart:
     def show_cart(self):
         total = 0
         print("Shopping Cart:")
-        for item, price in self.itens.items():
-            print(f"{item}: R${price:.2f}")
+        for index, (item, price) in enumerate(self.itens.items(), start=1):
+            print(f"{index} - {item}: R${price:.2f}")
             total += price
         print(f"Total: R${total:.2f}")
         return total
@@ -27,11 +27,12 @@ class shopping_cart:
 cart = shopping_cart()
 
 while True:
+    print("Welcome to Costa's Pizza, you are very welcome!")
     print("\nMenu:")
-    print("1 - Add item to cart")
+    print("\n1 - Add item to cart")
     print("2 - Show Cart")
     print("3 - Remove item from cart")
-    print("5 - Exit")
+    print("4 - Okay, I've finished my order. :)")
     print()
     choose = input("Choose the option: ")
 
@@ -39,7 +40,7 @@ while True:
         print()
         item = input("Type item name: ")
         print()
-        price = float(input("Type item price:R$ "))
+        price = float(input("Type item price:US$ "))
         print()
         cart.add_item(item, price)
         print(f"{item} added to cart, Wohooo!")
