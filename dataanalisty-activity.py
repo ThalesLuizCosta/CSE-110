@@ -1,18 +1,18 @@
-# Lê os dados do arquivo
-with open('dados.txt', 'r') as archieve:
-    linhas = archieve.readlines()
+# Read data from the file
+with open('data.txt', 'r') as file:
+    lines = file.readlines()
 
-# Converte as linhas para números inteiros
-ages = [int(linha.strip()) for linha in linhas]
+# Convert lines to integers
+ages = [int(line.strip()) for line in lines]
 
-# Calcula a média das idades
+# Calculate the average age
 average_age = sum(ages) / len(ages)
 
-print(f"Média das idades: {average_age:.2f}")
+print(f"Average age: {average_age:.2f}")
 
-# Verifica quais idades estão acima ou abaixo da média
+# Check which ages are above or below the average
 above_average = [age for age in ages if age > average_age]
 below_average = [age for age in ages if age < average_age]
 
-print(f"Idades acima da média: {above_average}")
-print(f"Idades abaixo da média: {below_average}")
+print(f"Ages above the average: {above_average}")
+print(f"Ages below the average: {below_average}")
