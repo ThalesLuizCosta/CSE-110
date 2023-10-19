@@ -2,7 +2,16 @@
 
 with open("dataexample.txt") as courses_file: # essa é uma outra forma para abrir o arquivo desejado 
     for line in courses_file:
-        print(line)
+        
+        parts = line.split(",")
+
+        name = parts[0]
+
+        grade = float(parts[1])
+
+        bonus_grade = grade + 3
+
+        print(f"{name} - Grade: {grade}, after bonus {bonus_grade}")
 
 # courses_file.close() -> nesse caso é sempre bom prestar atenção para dar um parâmetro para fechar o arquivo e liberar os recursos do sistema.
 
