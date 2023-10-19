@@ -1,16 +1,16 @@
-# Read data from the file
+# lê o arquivo em específico
 with open('datas.txt', 'r') as file:
     lines = file.readlines()
 
-# Convert lines to integers
+# converte as linhas em números inteiros
 ages = [int(line.strip()) for line in lines]
 
-# Calculate the average age
+# calcula a média de idade
 average_age = sum(ages) / len(ages)
 
 print(f"Average age: {average_age:.2f}")
 
-# Check which ages are above or below the average
+# verifica as idades acima e abaixo da média
 above_average = [age for age in ages if age > average_age]
 below_average = [age for age in ages if age < average_age]
 
