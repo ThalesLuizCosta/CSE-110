@@ -1,5 +1,5 @@
 # Read data from the file
-with open('data.txt', 'r') as file:
+with open('datas.txt', 'r') as file:
     lines = file.readlines()
 
 # Convert lines to integers
