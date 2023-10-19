@@ -4,8 +4,6 @@ with open("dataexample.txt") as courses_file: # essa é uma outra forma para abr
     for line in courses_file:
         print(line)
 
-    print("Goodbye")
+# courses_file.close() -> nesse caso é sempre bom prestar atenção para dar um parâmetro para fechar o arquivo e liberar os recursos do sistema.
 
-print("The file is closed now.")
-
-# courses_file.close() -> nesse caso é sempre bom prestar atenção para dar um parâmetro para fechar o arquivo.
+# a forma que foi feita acima mostra que é uma forma "elegante" de fechar o arquivo sem que haja desperdícios de recursos do sistema, tornando assim o o código mais seguro e limpo.
