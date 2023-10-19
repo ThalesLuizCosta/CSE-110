@@ -1,7 +1,8 @@
+# NUNCA SE ESQUEÇA QUE O NOME DE UMA FUNÇÃO SERÁ MELHOR SE PARECER COM O NOME DO ARQUIVO.
 
-with open("books.txt") as course_activity:
-    for line in course_activity:
+with open("books.txt") as book_file: 
+    for line in book_file:
     
-        parts = line.split()
+        book = line.strip()
 
-    print({course_activity}) 
+        print(book) # NUNCA SE ESQUEÇA QUE A IDENTAÇÃO FAZ DIFERENÇA!!!
