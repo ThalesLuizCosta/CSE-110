@@ -1,18 +1,16 @@
-# lê o arquivo em específico
+# Read data from the file
 with open('datas.txt', 'r') as file:
-    lines = file.readlines()
+    # Skip the header line using next()
+    next(file)
+    
+    # Read data and convert commas to periods
+    data = [float(line.strip().replace(",", ".")) for line in file]
 
-# converte as linhas em números inteiros
-ages = [int(line.strip()) for line in lines]
+# Find the maximum and minimum numbers
+maximum_number = max(data)
+minimum_number = min(data)
 
-# calcula a média de idade
-average_age = sum(ages) / len(ages)
+print(f"Maximum number: {maximum_number}")
+print(f"Minimum number: {minimum_number}")
 
-print(f"Average age: {average_age:.2f}")
-
-# verifica as idades acima e abaixo da média
-above_average = [age for age in ages if age > average_age]
-below_average = [age for age in ages if age < average_age]
-
-print(f"Ages above the average: {above_average}")
-print(f"Ages below the average: {below_average}")
+# Continue with the rest of your analysis code here
