@@ -1,6 +1,8 @@
-"""
-This program analyzes statistical data for different countries such as USA, China, India, Brazil, Russia and between the years 2010 to 2014. It reads data from a database file, calculates averages for a specific year, and finds the minimum and maximum values along with their corresponding countries for a given year.
-"""
+
+print("\nThis program analyzes statistical data for different countries such as USA, China, India, Brazil, Russia and between the years 2010 to 2014.")
+print("\nIt reads data from a database file, calculates averages for a specific year, and finds the minimum and maximum values along with their corresponding countries for a given year.")
+print("\nEnjoy it!")
+
 
 # Read data from the file
 with open('countries.txt', 'r') as file:
@@ -47,8 +49,8 @@ while True:
                     max_value = float(value)
                     max_country = country
 
-        print(f"Minimum statistic for {target_country}, {target_year}: {min_value} (Country: {min_country})")
-        print(f"Maximum statistic for {target_country}, {target_year}: {max_value} (Country: {max_country})")
+        print(f"Minimum statistic for {target_country}, {target_year}: {min_value:.2f} (Country: {min_country})")
+        print(f"Maximum statistic for {target_country}, {target_year}: {max_value:.2f} (Country: {max_country})")
         break  # Sai do loop se os dados válidos foram encontrados
     else:
         print("No data found for the given year or country. Please try again.")
