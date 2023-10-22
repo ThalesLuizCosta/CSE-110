@@ -1,9 +1,9 @@
 """
-This program analyzes statistical data for different countries and years. It reads data from a database file, calculates averages for a specific year, and finds the minimum and maximum values along with their corresponding countries for a given year.
+This program analyzes statistical data for different countries such as USA, China, India, Brazil, Russia and between the years 2010 to 2014. It reads data from a database file, calculates averages for a specific year, and finds the minimum and maximum values along with their corresponding countries for a given year.
 """
 
 # Read data from the file
-with open('dados.txt', 'r') as file:
+with open('countries.txt', 'r') as file:
     # Skip the header line
     next(file)
 
