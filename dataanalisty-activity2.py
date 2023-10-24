@@ -1,58 +1,86 @@
+"""
+This program analyzes statistical data for different countries and years.
+It reads data from a dataset, calculates averages for a specific year,
+and finds the minimum and maximum values along with their corresponding countries
+for a given year. The program handles the dataset by iterating through it line by line,
+splits each line into parts, and computes the required statistics based on user input.
+"""
 
-print("\nThis program analyzes statistical data for different countries such as USA, China, India, Brazil, Russia and between the years 2010 to 2014.")
-print("\nIt reads data from a database file, calculates averages for a specific year, and finds the minimum and maximum values along with their corresponding countries for a given year.")
-print("\nEnjoy it!")
-
-
-# Read data from the file
+# Read data from the dataset (assuming data is in a file named 'dataset.txt')
 with open('countries.txt', 'r') as file:
     # Skip the header line
     next(file)
 
-    # Parse data and store in a list of tuples (country, year, statistic)
-    data = [line.strip().split(',') for line in file]
+    # Initialize variables for highest and lowest values
+    highest_value = float('-inf')
+    lowest_value = float('inf')
+    highest_country = ""
+    lowest_country = ""
 
-# Loop para solicitar dados até que dados válidos sejam inseridos
-while True:
-    # Ano e país inseridos pelo usuário
-    target_year = int(input("Enter a year: "))
-    target_country = input("Enter a country: ")
-
-    # Flag para verificar se os dados foram encontrados
-    data_found = False
-
-    # Calcular média para o ano fornecido
+    # Initialize variables for average calculation
     total = 0
     count = 0
-    for country, year, value in data:
-        if int(year) == target_year and country.lower() == target_country.lower():
-            total += float(value)
-            count += 1
-            data_found = True
 
-    if data_found:
-        average = total / count
-        print(f"Average statistic for {target_country}, {target_year}: {average:.2f}")
-        
-        # Encontrar valores mínimos e máximos e países correspondentes para o ano fornecido
-        min_value = float('inf')
-        max_value = float('-inf')
-        min_country = ""
-        max_country = ""
+    # Iterate through the dataset
+    for line in file:
+        country, year, value = line.strip().split(',')
+        value = float(value)
 
-        for country, year, value in data:
-            if int(year) == target_year:
-                if float(value) < min_value:
-                    min_value = float(value)
-                    min_country = country
-                if float(value) > max_value:
-                    max_value = float(value)
-                    max_country = country
+        # Find highest and lowest values along with their countries
+        if value > highest_value:
+            highest_value = value
+            highest_country = country
+        if value < lowest_value:
+            lowest_value = value
+            lowest_country = country
 
-        print(f"Minimum statistic for {target_country}, {target_year}: {min_value:.2f} (Country: {min_country})")
-        print(f"Maximum statistic for {target_country}, {target_year}: {max_value:.2f} (Country: {max_country})")
-        break  # Sai do loop se os dados válidos foram encontrados
+        # Calculate total for average
+        total += value
+        count += 1
+
+    # Calculate average for all years
+    average = total / count
+
+    # User input for a specific year
+    target_year = input("Enter a year: ")
+
+    # Initialize variables for specific year calculations
+    year_total = 0
+    year_count = 0
+    year_min_value = float('inf')
+    year_max_value = float('-inf')
+    year_min_country = ""
+    year_max_country = ""
+
+    # Iterate through the dataset for the specific year
+    file.seek(0)  # Reset file pointer to the beginning of the file
+    next(file)  # Skip the header line
+    for line in file:
+        country, year, value = line.strip().split(',')
+        value = float(value)
+        if year == target_year:
+            # Calculate total for specific year average
+            year_total += value
+            year_count += 1
+
+            # Find minimum and maximum values along with their countries for the specific year
+            if value < year_min_value:
+                year_min_value = value
+                year_min_country = country
+            if value > year_max_value:
+                year_max_value = value
+                year_max_country = country
+
+    # Calculate average for the specific year
+    if year_count > 0:
+        year_average = year_total / year_count
     else:
-        print("No data found for the given year or country. Please try again.")
-        # Continua pedindo novamente os dados
-        continue
+        year_average = 0
+
+    # Display results
+    print(f"Highest Value: {highest_value} (Country: {highest_country})")
+    print(f"Lowest Value: {lowest_value} (Country: {lowest_country})")
+    print(f"Average for All Years: {average:.2f}")
+    print(f"Minimum Value for {target_year}: {year_min_value} (Country: {year_min_country})")
+    print(f"Maximum Value for {target_year}: {year_max_value} (Country: {year_max_country})")
+    print(f"Average for {target_year}: {year_average:.2f}")
