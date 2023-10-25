@@ -7,17 +7,17 @@ def convert_celsius_to_fahrenheit(celsius):
     return fahrenheit
 
 def main():
-    start_temperature = -20  # Starting temperature in Celsius
-    end_temperature = 10    # Ending temperature in Celsius
-    wind_speed = 5          # Wind speed in m/s
+    temperatures = list(range(-20, 11))  # Lista de temperaturas de -20°C a 10°C
+    wind_speeds = [2, 4, 6, 8, 10]       # Lista de velocidades do vento em m/s
 
-    print("Temperature (°C)  Windchill (°C)")
-    print("-" * 30)
+    print("Temperatura (°C)  Velocidade do Vento (m/s)  Sensação Térmica (°C)")
+    print("-" * 50)
 
-    for temperature in range(start_temperature, end_temperature + 1):
-        windchill_celsius = calculate_windchill(temperature, wind_speed)
-        windchill_fahrenheit = convert_celsius_to_fahrenheit(windchill_celsius)
-        print(f"{temperature:^10} {windchill_celsius:.2f}°C / {windchill_fahrenheit:.2f}°F")
+    for temperature in temperatures:
+        for wind_speed in wind_speeds:
+            windchill_celsius = calculate_windchill(temperature, wind_speed)
+            windchill_fahrenheit = convert_celsius_to_fahrenheit(windchill_celsius)
+            print(f"{temperature:^10} {wind_speed:^25} {windchill_celsius:.2f}°C / {windchill_fahrenheit:.2f}°F")
 
 if __name__ == "__main__":
     main()
